@@ -1,13 +1,7 @@
-Project to build [Jackson](http://jackson.codehaus.org) module (jar)
-to support JSON serialization and deserialization of
-[Guava](http://code.google.com/p/guava-libraries/) collection types.
+## Overview
 
-[![Build Status](https://fasterxml.ci.cloudbees.com/job/jackson-datatype-guava-master/badge/icon)](https://fasterxml.ci.cloudbees.com/job/jackson-datatype-guava-master/)
-
-## Status
-
-As of version 2.0 module is usable although coverage is not extensive:
-more support is added mainly via user contributions.
+Module that adds support to Jackson for serializing and deserializaing Google's 
+[Protocol Buffers](https://code.google.com/p/protobuf/) to and from JSON.
 
 ## Usage
 
@@ -17,9 +11,9 @@ To use module on Maven-based projects, use following dependency:
 
 ```xml
 <dependency>
-  <groupId>com.fasterxml.jackson.datatype</groupId>
-  <artifactId>jackson-datatype-guava</artifactId>
-  <version>2.2.0</version>
+  <groupId>com.hubspot.jackson</groupId>
+  <artifactId>jackson-datatype-protobuf</artifactId>
+  <version>0.1.0</version>
 </dependency>
 ```
 
@@ -31,12 +25,8 @@ Like all standard Jackson modules (libraries that implement Module interface), r
 
 ```java
 ObjectMapper mapper = new ObjectMapper();
-mapper.registerModule(new GuavaModule());
+mapper.registerModule(new ProtobufModule());
 ```
 
 after which functionality is available for all normal Jackson operations.
-
-## More
-
-See [Wiki](jackson-datatype-guava/wiki) for more information (javadocs, downloads).
 
